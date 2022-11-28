@@ -11,12 +11,15 @@ import (
 
 func UserUpdateHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
+		
+		// 1. 参数解析
 		var req types.UserUpdateReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.Error(w, err)
 			return
 		}
 
+		// 2. 业务逻辑
 		l := user.NewUserUpdateLogic(r.Context(), svcCtx)
 		resp, err := l.UserUpdate(&req)
 		if err != nil {

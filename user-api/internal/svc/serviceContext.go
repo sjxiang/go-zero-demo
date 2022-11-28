@@ -6,10 +6,12 @@ import (
 
 type ServiceContext struct {
 	Config config.Config
+	// Kafka、Redis、UserModel 等
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		Config: c,
+		// Todo ...
 	}
 }

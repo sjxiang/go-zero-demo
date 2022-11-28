@@ -17,13 +17,17 @@ var configFile = flag.String("f", "etc/user-api.yaml", "the config file")
 func main() {
 	flag.Parse()
 
+	// 参数配置
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
 
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
 
+	// 依赖
 	ctx := svc.NewServiceContext(c)
+	
+	// 注册路由
 	handler.RegisterHandlers(server, ctx)
 
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)
