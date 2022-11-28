@@ -1,0 +1,59 @@
+# go-zero 介绍
+# go-zero 环境搭建
+# go-zero 杀手锏 - goctl 
+# api 服务 - api 编写及自动生成代码
+# api 服务 - 配置文件
+# api 服务 - serviceContext
+# api 服务 - handler
+# api 服务 - logic
+# api 服务 - model
+# api 服务 - middleware
+# api 服务 - 源码解读
+# rpc 服务 - protobuf 编写及自动生成代码
+# rpc 服务 - serviceContext
+# rpc 服务 - handler
+# rpc 服务 - logic
+# rpc 服务 - model
+# rpc 服务 - interceptor
+# rpc 服务 - 源码解读
+# 服务发现三种方式（直连、etcd、k8s）
+# api 与 rpc 基于 grpc 的 metadata 传值
+# api 错误处理
+# rpc 错误处理
+# 使用 template 来自定义生成代码
+
+
+# go-zero 介绍
+项目前期，规模如果小，完全可以当 web 框架用。规模上来了，可以拆分成微服务。
+
+# go-zero 环境搭建
+1. 安装 goctl
+  $ go install github.com/zeromicro/go-zero/tools/goctl@latest
+
+2. 安装 protoc、protoc-gen-go、protoc-gen-go-grpc
+  $ goctl env check -i -f --verbose
+
+3. 安装 vscode goctl 插件，语法高亮
+
+
+# go-zero 杀手锏 - goctl 
+
+1. 生成业务代码
+  $ goctl api go -api *.api -dir ../  --style=goZero
+  $ goctl rpc protoc *.proto --go_out=../ --go-grpc_out=../  --zrpc_out=../ --style=goZero
+
+
+2. 生成 dockerfile
+  $ goctl docker -go user.go
+
+
+3. 生成 k8s yaml 文件
+  $ goctl kube deploy user-api -mamespace go-zero-looklook -image user-api:v1.0 -o user-api.yaml -port 1001
+
+4. 生成 Model 
+  tips：先建库建表
+
+5. 生成 doc 文档
+  $ goctl api doc --dir ./
+
+

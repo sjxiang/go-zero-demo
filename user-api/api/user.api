@@ -1,0 +1,47 @@
+// api 语法版本
+syntax = "v1"
+
+info(
+	title: "用户服务"
+	desc: "demo 示范"
+	author: "sjxiang"
+	email: "1535484943@qq.com"
+	version: "v0.1"
+	date: "2022-11-28"
+)
+
+type (
+	UserInfoReq {
+		UserId int64 `json:"userId"`
+	}
+	UserInfoResp {
+		UserId   int64  `json:"userId"`
+		NickName string `json:"nickname"`
+	}
+)
+
+type (
+	UserUpdateReq {
+		UserId   int64  `json:"userId"`
+		NickName string `json:"nickname"`
+	}
+	UserUpdateResp {
+		Flag bool `json:"flag"`
+	}
+)
+
+@server(
+	group: user  // handler 分组，不是路由前缀分组
+)
+
+service user-api {
+	@doc "获取用户信息"
+	@handler userInfo
+	post /user/info (UserInfoReq) returns (UserInfoResp)
+	
+	@doc "更新用户信息"
+	@handler userUpdate
+	post /user/update (UserUpdateReq) returns (UserUpdateResp)
+}
+
+// 吊打 swagger
