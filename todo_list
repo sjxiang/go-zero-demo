@@ -9,6 +9,8 @@
 # api 服务 - model
 # api 服务 - middleware
 # api 服务 - 源码解读
+
+
 # rpc 服务 - protobuf 编写及自动生成代码
 # rpc 服务 - serviceContext
 # rpc 服务 - handler
@@ -57,3 +59,25 @@
   $ goctl api doc --dir ./
 
 
+# api 服务 - api 编写及自动生成代码
+
+参考文档
+
+
+$ tree ./user-api/ -d
+./user-api/
+├── api
+├── etc
+└── internal
+    ├── config   # 配置管理
+    ├── handler  # 拼装
+    ├── logic    # 业务逻辑
+    ├── svc      # 依赖
+    └── types    # 定义 struct
+
+
+# api 服务 - 数据库操作
+
+$ sh genModel.sh zero-demo user
+
+错误处理很棒，数据库查询失败 & 数据不存在
