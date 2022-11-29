@@ -7,15 +7,15 @@ import (
 )
 
 type ServiceContext struct {
-	Config config.Config
-	UserModel model.UserModel
-	// Kafka、Redis、UserModel 等
+	Config        config.Config
+	UserModel     model.UserModel
+	UserDataModel model.UserDataModel
 }
 
 func NewServiceContext(c config.Config) *ServiceContext {
 	return &ServiceContext{
 		Config: c,
-		UserModel: model.NewUserModel(sqlx.NewMysql(c.DB.DataSource)),
-		// Todo ...
+		UserModel: model.NewUserModel(sqlx.NewMysql(c.DB.DataSource), c.Cache),
+		UserDataModel: model.NewUserDataModel(sqlx.NewMysql(c.DB.DataSource), c.Cache),
 	}
 }

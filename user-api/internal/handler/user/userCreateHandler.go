@@ -9,16 +9,16 @@ import (
 	"github.com/zeromicro/go-zero/rest/httpx"
 )
 
-func UserUpdateHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
+func UserCreateHandler(svcCtx *svc.ServiceContext) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
-		var req types.UserUpdateReq
+		var req types.UserCreateReq
 		if err := httpx.Parse(r, &req); err != nil {
 			httpx.Error(w, err)
 			return
 		}
 
-		l := user.NewUserUpdateLogic(r.Context(), svcCtx)
-		resp, err := l.UserUpdate(&req)
+		l := user.NewUserCreateLogic(r.Context(), svcCtx)
+		resp, err := l.UserCreate(&req)
 		if err != nil {
 			httpx.Error(w, err)
 		} else {

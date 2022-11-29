@@ -12,11 +12,21 @@ info(
 
 type (
 	UserInfoReq {
-		UserId int64 `json:"userId"`
+		UserId int64 `form:"userId"`
 	}
 	UserInfoResp {
 		UserId   int64  `json:"userId"`
 		NickName string `json:"nickname"`
+	}
+)
+
+type (
+	UserCreateReq {
+		Mobile   string `json:"mobile"`
+		NickName string `json:"nickname"`
+	}
+	UserCreateResp {
+		Flag bool `json:"flag"`
 	}
 )
 
@@ -36,9 +46,14 @@ type (
 )
 
 service user-api {
+	
+	@doc "新建用户"
+	@handler userCreate
+	post /user/create (UserCreateReq) returns (UserCreateResp)
+	
 	@doc "获取用户信息"
 	@handler userInfo
-	post /user/info (UserInfoReq) returns (UserInfoResp)
+	get /user/info (UserInfoReq) returns (UserInfoResp)
 	
 	@doc "更新用户信息"
 	@handler userUpdate
