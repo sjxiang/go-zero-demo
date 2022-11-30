@@ -2,7 +2,6 @@ package user
 
 import (
 	"context"
-	"fmt"
 
 	"github.com/sjxiang/go-zero-demo/user-api/internal/svc"
 	"github.com/sjxiang/go-zero-demo/user-api/internal/types"
@@ -26,7 +25,7 @@ func NewUserTestLogic(ctx context.Context, svcCtx *svc.ServiceContext) *UserTest
 
 func (l *UserTestLogic) UserTest(req *types.UserTestReq) (resp *types.UserTestResp, err error) {
 	// todo: add your logic here and delete this line
-	fmt.Println("user test ing")
+	l.Logger.Info("user test ing")
 	
 	return
 }

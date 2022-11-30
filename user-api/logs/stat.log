@@ -1,0 +1,6 @@
+2022-11-30T18:09:28.452+08:00	[32;1m stat [0m	CPU: 0m, MEMORY: Alloc=2.4Mi, TotalAlloc=4.7Mi, Sys=14.0Mi, NumGC=1	caller=stat/usage.go:61
+2022-11-30T18:09:28.452+08:00	[32;1m stat [0m	(api) shedding_stat [1m], cpu: 0, total: 1, pass: 1, drop: 0	caller=load/sheddingstat.go:61
+2022-11-30T18:09:31.984+08:00	[32;1m stat [0m	(user-api) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.1ms, 90th: 0.1ms, 99th: 0.1ms, 99.9th: 0.1ms	caller=stat/metrics.go:210
+2022-11-30T18:10:28.451+08:00	[32;1m stat [0m	CPU: 16m, MEMORY: Alloc=2.0Mi, TotalAlloc=7.3Mi, Sys=14.6Mi, NumGC=2	caller=stat/usage.go:61
+2022-11-30T18:10:28.453+08:00	[32;1m stat [0m	(api) shedding_stat [1m], cpu: 16, total: 0, pass: 0, drop: 0	caller=load/sheddingstat.go:61
+2022-11-30T18:10:31.983+08:00	[32;1m stat [0m	(user-api) - qps: 0.0/s, drops: 0, avg time: 0.0ms, med: 0.0ms, 90th: 0.0ms, 99th: 0.0ms, 99.9th: 0.0ms	caller=stat/metrics.go:210

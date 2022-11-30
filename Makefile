@@ -1,6 +1,4 @@
 
-
-
 open-container:
 	docker-compose up -d
 	

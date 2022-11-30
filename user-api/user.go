@@ -16,18 +16,21 @@ import (
 var configFile = flag.String("f", "etc/user-api.yaml", "the config file")
 
 func main() {
+	// cli 解析
 	flag.Parse()
 
+	// 配置
 	var c config.Config
 	conf.MustLoad(*configFile, &c)
 
+	// 依赖
+	ctx := svc.NewServiceContext(c)
+	
 	server := rest.MustNewServer(c.RestConf)
 	defer server.Stop()
-
-	ctx := svc.NewServiceContext(c)
-
 	// 全局中间件
 	server.Use(middleware.NewGlobalMiddleware().Handle)
+	
 	handler.RegisterHandlers(server, ctx)
 
 	fmt.Printf("Starting server at %s:%d...\n", c.Host, c.Port)

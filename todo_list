@@ -27,6 +27,9 @@
 # 使用 template 来自定义生成代码
 
 
+=======
+
+
 # go-zero 介绍
 项目前期，规模如果小，完全可以当 web 框架用。规模上来了，可以拆分成微服务。
 
@@ -66,7 +69,7 @@
 参考文档
 
 
-$ tree ./user-api/ -d
+  $ tree ./user-api/ -d
 ./user-api/
 ├── api
 ├── etc
@@ -80,8 +83,8 @@ $ tree ./user-api/ -d
 
 # api 服务 - 数据库操作
 
-$ sh genModel.sh zero-demo user
-$ sh genModel.sh zero-demo user_data
+  $ sh genModel.sh zero-demo user
+  $ sh genModel.sh zero-demo user_data
 
 错误处理很棒（数据库查询失败 & 数据不存在）
 
@@ -96,8 +99,19 @@ $ sh genModel.sh zero-demo user_data
 
 两者先后，前全局后局部
 
+
 # api 服务 - 日志
 
+配置
+
+type Config struct {
+  zrpc.RpcConf   // rpc
+  rest.RestConf  // api 相关配置，日志配置项包含在其中
+}
+
+
+链路追踪
+这些都写完了，只不过不配置的话，默认基本配置 nil 处理
 
 
 

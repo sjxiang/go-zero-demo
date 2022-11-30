@@ -7,8 +7,10 @@ import (
 
 type Config struct {
 	rest.RestConf
+
 	DB struct {
 		DataSource string
 	} 	
+	
 	Cache cache.CacheConf
 }

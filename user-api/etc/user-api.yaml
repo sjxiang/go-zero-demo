@@ -6,8 +6,10 @@ Log:
   ServiceName: user-api
   Mode: file
   Path: logs
-  Level: error
+  Level: info
   Encoding: plain
+  Compress: false
+  KeepDays: 7
   
 
 DB:

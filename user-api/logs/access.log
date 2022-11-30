@@ -1,0 +1,4 @@
+2022-11-30T18:07:48.623+08:00	[34;1m info [0m	user test ing	caller=user/userTestLogic.go:28	trace=19fc66816eb7ef10ffedd6df0f055870	span=e8819df46af0e607
+2022-11-30T18:07:48.623+08:00	[34;1m info [0m	[HTTP] [42;97;1m 200 [0m - [46;97;1m POST [0m /api/v1/user/test - 127.0.0.1:41358 - PostmanRuntime/7.29.2	duration=0.1ms	caller=handler/loghandler.go:196	trace=19fc66816eb7ef10ffedd6df0f055870	span=e8819df46af0e607
+2022-11-30T18:08:31.982+08:00	[34;1m info [0m	user test ing	caller=user/userTestLogic.go:28	trace=b2e9a1cf0ef962b72d73090a675aaa12	span=47e89f6818fb4490
+2022-11-30T18:08:31.982+08:00	[34;1m info [0m	[HTTP] [42;97;1m 200 [0m - [46;97;1m POST [0m /api/v1/user/test - 127.0.0.1:42988 - PostmanRuntime/7.29.2	duration=0.1ms	caller=handler/loghandler.go:196	trace=b2e9a1cf0ef962b72d73090a675aaa12	span=47e89f6818fb4490
