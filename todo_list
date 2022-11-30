@@ -1,13 +1,15 @@
 # go-zero 介绍
 # go-zero 环境搭建
 # go-zero 杀手锏 - goctl 
-# api 服务 - api 编写及自动生成代码
-# api 服务 - 配置文件
-# api 服务 - serviceContext
-# api 服务 - handler
-# api 服务 - logic
-# api 服务 - model
-# api 服务 - middleware
+# api 服务
+  - api 编写及自动生成代码
+	- 配置文件 yaml
+	- 依赖 serviceContext
+	- 数据库操作 model
+	- 中间件 middleware
+	- 日志 log
+
+
 # api 服务 - 源码解读
 
 
@@ -81,7 +83,7 @@ $ tree ./user-api/ -d
 $ sh genModel.sh zero-demo user
 $ sh genModel.sh zero-demo user_data
 
-错误处理很棒，数据库查询失败 & 数据不存在
+错误处理很棒（数据库查询失败 & 数据不存在）
 
 事务处理很烂，保持一个 session 
 
@@ -90,10 +92,3 @@ $ sh genModel.sh zero-demo user_data
 
 # 
 
-
-步骤
-
-1. api 文件编写 
-2. MySQL 建库建表
-3. 配置文件
-4. 依赖
