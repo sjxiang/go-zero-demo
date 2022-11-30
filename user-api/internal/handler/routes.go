@@ -12,21 +12,35 @@ import (
 
 func RegisterHandlers(server *rest.Server, serverCtx *svc.ServiceContext) {
 	server.AddRoutes(
+		rest.WithMiddlewares(
+			[]rest.Middleware{serverCtx.TestMiddleware},
+			[]rest.Route{
+				{
+					Method:  http.MethodPost,
+					Path:    "/user/create",
+					Handler: user.UserCreateHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodGet,
+					Path:    "/user/info/:userId",
+					Handler: user.UserInfoHandler(serverCtx),
+				},
+				{
+					Method:  http.MethodPost,
+					Path:    "/user/update",
+					Handler: user.UserUpdateHandler(serverCtx),
+				},
+			}...,
+		),
+		rest.WithPrefix("/api/v1"),
+	)
+
+	server.AddRoutes(
 		[]rest.Route{
 			{
 				Method:  http.MethodPost,
-				Path:    "/user/create",
-				Handler: user.UserCreateHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodGet,
-				Path:    "/user/info",
-				Handler: user.UserInfoHandler(serverCtx),
-			},
-			{
-				Method:  http.MethodPost,
-				Path:    "/user/update",
-				Handler: user.UserUpdateHandler(serverCtx),
+				Path:    "/user/test",
+				Handler: user.UserTestHandler(serverCtx),
 			},
 		},
 		rest.WithPrefix("/api/v1"),

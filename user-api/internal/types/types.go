@@ -2,7 +2,7 @@
 package types
 
 type UserInfoReq struct {
-	UserId int64 `form:"userId"`
+	UserId int64 `path:"userId"`
 }
 
 type UserInfoResp struct {
@@ -26,4 +26,10 @@ type UserUpdateReq struct {
 
 type UserUpdateResp struct {
 	Flag bool `json:"flag"`
+}
+
+type UserTestReq struct {
+}
+
+type UserTestResp struct {
 }

@@ -12,7 +12,7 @@ info(
 
 type (
 	UserInfoReq {
-		UserId int64 `form:"userId"`
+		UserId int64 `path:"userId"`
 	}
 	UserInfoResp {
 		UserId   int64  `json:"userId"`
@@ -54,7 +54,7 @@ service user-api {
 	
 	@doc "获取用户信息"
 	@handler userInfo
-	get /user/info (UserInfoReq) returns (UserInfoResp)
+	get /user/info/:userId (UserInfoReq) returns (UserInfoResp)
 	
 	@doc "更新用户信息"
 	@handler userUpdate
@@ -66,3 +66,22 @@ service user-api {
 // 与 GET 对应
 // form 标签 表单传参 /info     => /info?userId=1
 // path 标签 动态路由 /info/:id => /1
+
+type (
+	UserTestReq {
+	}
+	UserTestResp {
+	}
+)
+
+@server(
+	group: user
+	prefix: api/v1
+)
+
+service user-api {
+	
+	@doc "测试-对比中间件"
+	@handler userTest
+	post /user/test (UserTestReq) returns (UserTestResp)
+}
