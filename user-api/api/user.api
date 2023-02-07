@@ -41,7 +41,7 @@ type (
 )
 
 @server(
-	group: user  // handler 分组，不是路由前缀分组
+	 
 	prefix: api/v1
 	middleware: TestMiddleware
 )

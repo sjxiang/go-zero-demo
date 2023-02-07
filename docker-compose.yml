@@ -41,3 +41,11 @@ services:
       - /home/xsj/go/src/github.com/sjxiang/dev_script/temp02/redis/data:/data
     command: redis-server --appendonly yes 
     
+
+
+  etcd:
+      image: 'bitnami/etcd:latest'
+      environment:
+        - ALLOW_NONE_AUTHENTICATION=yes
+      ports:
+        - 2379:2379
